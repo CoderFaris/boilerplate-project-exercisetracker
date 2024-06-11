@@ -22,7 +22,7 @@ const ExerciseSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema({
 
   username: {type: String, required: true},
-  exercises: [ExerciseSchema]
+  
 })
 
 User = mongoose.model('User', UserSchema)
