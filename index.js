@@ -117,16 +117,8 @@ app.get('/api/users/:_id/logs', async function (req, res) {
 		req.query.to || new Date(Date.now()).toISOString().substring(0, 10);
 	const limit = Number(req.query.limit) || 0;
 
-	console.log('### get the log from a user ###'.toLocaleUpperCase());
-
-	//? Find the user
 	let user = await User.findById(userId).exec();
 
-	console.log(
-		'looking for exercises with id ['.toLocaleUpperCase() + userId + '] ...'
-	);
-
-	//? Find the exercises
 	let exercises = await Exercise.find({
 		userId: userId,
 		date: { $gte: from, $lte: to },
